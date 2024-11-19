@@ -70,6 +70,4 @@ export class Configuration {
     const fileName = extension === 'env' ? '.env' : 'config.yml';
     return writeFile(fileName, content);
   }
-export class Source {
-  static getConfiguration() {}
 }
