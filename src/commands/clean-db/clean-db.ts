@@ -1,7 +1,7 @@
 import { Command } from 'commander';
-
-import { ListTablesCommand } from '@aws-sdk/client-dynamodb';
-import { getDynamodbClient } from './get-dynamodb-client';
+import { PromptRequiredArgumentsService } from './services/PromptRequiredArgumentsService';
+import { DynamodbTableService } from './services/DynamodbTableService';
+import { PromptTableSelectionService } from './services/PromptTableSelectionService';
 
 export const cleanDb = new Command('clean-db');
 
@@ -10,10 +10,16 @@ cleanDb
   .option('-p, --profile <profile>', 'Provide a profile name')
   .option('-pr, --provider <provider>', 'AWS credentials provider.')
   .option('-r, --region <region>', 'AWS region')
-  .option('-t, --tables <table>', 'The table name or all tables')
   .action(async (options) => {
-    const client = getDynamodbClient(options);
-    const result = await client.send(new ListTablesCommand());
+    const promptRequiredArgumentsService = new PromptRequiredArgumentsService(options);
+    const credentials = await promptRequiredArgumentsService.run();
+    const client = DynamodbTableService.getClient(credentials);
+    const dynamoDbTableService = new DynamodbTableService(client);
+    const { TableNames = [] } = await dynamoDbTableService.listTables();
+    const promptTableSelectionService = new PromptTableSelectionService(TableNames);
+    const tables = await promptTableSelectionService.run();
 
-    console.log(result);
+    for (const table of tables) {
+      await dynamoDbTableService.clean(table);
+    }
   });
