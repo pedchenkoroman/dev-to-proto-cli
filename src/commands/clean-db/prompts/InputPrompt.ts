@@ -1,9 +1,11 @@
-import { InputPromptType, Prompt as IPrompt } from '../types/Prompt';
-import { PromptType } from '../types/PromptType';
 import { Prompt } from '@inquirer/type';
-import { PromptedArgument } from '../types/PromptedArgument';
 
-export class InputPrompt implements InputPromptType, IPrompt {
+import { PromptType } from '../types/PromptType.js';
+
+import type { InputPromptType } from '../types/Prompt';
+import type { PromptedArgument } from '../types/PromptedArgument';
+
+export class InputPrompt implements InputPromptType {
   message: string;
   required = false;
   name: PromptedArgument;

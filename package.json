@@ -3,9 +3,10 @@
   "name": "own-cli",
   "version": "1.0.0",
   "description": "The prototype of cli application",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "run": "cross-env NODE_OPTIONS='--import tsx --inspect' node src/index.ts"
+    "build": "tsc",
+    "run": "cross-env NODE_OPTIONS='--import tsx --inspect' node src/index.ts clean-db"
   },
   "keywords": [],
   "author": "",

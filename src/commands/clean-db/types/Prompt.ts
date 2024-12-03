@@ -2,17 +2,12 @@ import type { Choice } from './Choice';
 import { PromptType } from './PromptType';
 import { PromptedArgument } from './PromptedArgument';
 
-export type Prompt = {
-  message: string;
-  type: PromptType;
-  name: PromptedArgument;
-  ask: (args: any) => Promise<string | string[]>;
-};
-
 export type InputPromptType = {
   type: PromptType;
   message: string;
   required?: boolean;
+  name: PromptedArgument;
+  ask: () => Promise<string>;
 };
 
 export type CheckboxPromptType = {
@@ -21,6 +16,7 @@ export type CheckboxPromptType = {
   name: PromptedArgument;
   choices: Choice[];
   required?: boolean;
+  ask: () => Promise<string[]>;
 };
 
 export type SelectPromptType = {
@@ -29,4 +25,13 @@ export type SelectPromptType = {
   name: PromptedArgument;
   choices: Choice[];
   default?: string;
+  ask: () => Promise<string>;
+};
+
+export type ConfirmationPromptType = {
+  type: PromptType;
+  message: string;
+  name: PromptedArgument;
+  default?: boolean;
+  ask: () => Promise<boolean>;
 };

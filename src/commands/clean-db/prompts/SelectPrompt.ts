@@ -1,10 +1,12 @@
-import { SelectPromptType, Prompt as IPrompt } from '../types/Prompt';
-import { Choice } from '../types/Choice';
-import { PromptType } from '../types/PromptType';
 import { Prompt } from '@inquirer/type';
-import { PromptedArgument } from '../types/PromptedArgument';
 
-export class SelectPrompt implements SelectPromptType, IPrompt {
+import { PromptType } from '../types/PromptType.js';
+
+import type { Choice } from '../types/Choice';
+import type { SelectPromptType } from '../types/Prompt';
+import type { PromptedArgument } from '../types/PromptedArgument';
+
+export class SelectPrompt implements SelectPromptType {
   message: string;
   choices: Choice[];
   type = PromptType.Select;
@@ -12,7 +14,7 @@ export class SelectPrompt implements SelectPromptType, IPrompt {
   name: PromptedArgument;
 
   constructor(
-    { message, choices, name, ...rest }: Omit<SelectPromptType, 'type'>,
+    { message, choices, name, ...rest }: Omit<SelectPromptType, 'type' | 'ask'>,
     private prompt: Prompt<string, any>,
   ) {
     this.message = message;

@@ -3,4 +3,5 @@ export enum PromptedArgument {
   Profile = 'profile',
   Provider = 'provider',
   Table = 'table',
+  Force = 'force',
 }

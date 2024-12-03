@@ -1,10 +1,10 @@
 import { input, select } from '@inquirer/prompts';
 
-import { regions } from '../prompts/regions';
-import { InputPrompt } from '../prompts/InputPrompt';
-import { SelectPrompt } from '../prompts/SelectPrompt';
-import { RequiredOptions } from '../types/RequiredOptions';
-import { PromptedArgument } from '../types/PromptedArgument';
+import { regions } from '../prompts/regions.js';
+import { InputPrompt } from '../prompts/InputPrompt.js';
+import { SelectPrompt } from '../prompts/SelectPrompt.js';
+import { RequiredOptions } from '../types/RequiredOptions.js';
+import { PromptedArgument } from '../types/PromptedArgument.js';
 
 export class PromptRequiredArgumentsService {
   collectionPrompts = {

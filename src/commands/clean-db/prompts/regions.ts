@@ -1,4 +1,4 @@
-import { Choice } from '../types/Choice';
+import type { Choice } from '../types/Choice';
 
 export const regions: Choice[] = [
   { value: 'us-east-1', name: 'US East (N. Virginia)' },

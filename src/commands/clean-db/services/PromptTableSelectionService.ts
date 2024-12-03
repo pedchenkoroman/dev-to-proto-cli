@@ -1,7 +1,7 @@
 import { checkbox } from '@inquirer/prompts';
 
-import { CheckboxPrompt } from '../prompts/CheckboxPrompt';
-import { PromptedArgument } from '../types/PromptedArgument';
+import { CheckboxPrompt } from '../prompts/CheckboxPrompt.js';
+import { PromptedArgument } from '../types/PromptedArgument.js';
 
 export class PromptTableSelectionService {
   private prompt: CheckboxPrompt;
