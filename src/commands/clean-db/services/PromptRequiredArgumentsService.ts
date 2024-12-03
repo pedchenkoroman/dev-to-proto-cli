@@ -46,23 +46,6 @@ export class PromptRequiredArgumentsService {
       },
       select,
     ),
-    // [PromptedArgument.Table]: async () => {
-    //   const client = getDynamodbClient(this.options);
-    //   const command = new ListTablesCommand();
-    //   const { TableNames = [] } = await client.send(command);
-    //   const choices = [...TableNames, 'all'].map((name) => ({
-    //     name,
-    //     value: name,
-    //   }));
-    //   return new CheckboxPrompt(
-    //     {
-    //       message: "Please select a table to clean or choose 'all':",
-    //       name: PromptedArgument.Table,
-    //       choices,
-    //     },
-    //     checkbox,
-    //   );
-    // },
   };
 
   private readonly options: Partial<RequiredOptions>;
