@@ -1,6 +1,6 @@
 import { Command } from 'commander';
 
-import { Configuration } from './Configuration';
+import { Configuration } from './Configuration.js';
 
 export const configure = new Command('configure');
 
