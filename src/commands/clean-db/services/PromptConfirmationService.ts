@@ -1,6 +1,5 @@
 import chalk from 'chalk';
 import { confirm } from '@inquirer/prompts';
-
 import { PromptedArgument } from '../types/PromptedArgument.js';
 import { ConfirmationPrompt } from '../prompts/ConfirmationPrompt.js';
 
