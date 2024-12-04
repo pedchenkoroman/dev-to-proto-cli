@@ -1,15 +1,18 @@
 {
   "type": "module",
-  "name": "my-own-cli",
-  "version": "1.0.0",
+  "name": "dev-to-proto-cli",
+  "version": "1.0.2",
   "description": "The prototype of cli application",
   "main": "dist/index.js",
+  "bin": {
+    "dev-to-proto-cli": "dist/index.js"
+  },
   "scripts": {
     "build": "tsc",
-    "run": "cross-env NODE_OPTIONS='--import tsx --inspect' node src/index.ts clean-db"
+    "run": "cross-env NODE_OPTIONS='--import tsx --inspect' node src/index.ts configure"
   },
   "keywords": [],
-  "author": "",
+  "author": "Roman Pedchenko",
   "license": "ISC",
   "devDependencies": {
     "@types/figlet": "^1.7.0",
@@ -28,5 +31,8 @@
     "figlet": "^1.8.0",
     "ora": "^8.1.1",
     "yaml": "^2.6.0"
-  }
+  },
+  "files": [
+    "/dist"
+  ]
 }

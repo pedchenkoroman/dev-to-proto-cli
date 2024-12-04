@@ -6,10 +6,13 @@ import { Command } from 'commander';
 import { configure } from './commands/configure/configure.js';
 import { cleanDb } from './commands/clean-db/clean-db.js';
 
-console.log(chalk.yellow(figlet.textSync('Roman Pedchenko', { horizontalLayout: 'full' })));
+console.log(chalk.yellow(figlet.textSync('Dev-to-proto-cli', { horizontalLayout: 'full' })));
 
 const program = new Command();
 
-program.addCommand(configure).addCommand(cleanDb);
+program
+  .description('The prototype of cli for my article: "Why do you want to build your own cli?"')
+  .addCommand(configure)
+  .addCommand(cleanDb);
 
 program.parse(process.argv);
