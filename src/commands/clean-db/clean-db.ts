@@ -17,7 +17,7 @@ cleanDb
   .option('-p, --profile <profile>', 'Provide a profile name')
   .option('-pr, --provider <provider>', 'AWS credentials provider.')
   .option('-r, --region <region>', 'AWS region')
-  .option('-f, --force [force]', 'Skip the confirmation popup', false)
+  .option('-y, --yes [yes]', 'Automatically answer "yes" to the prompt of clean tables.', false)
   .action(async (options: Options) => {
     const promptRequiredArgumentsService = new PromptRequiredArgumentsService(options);
     const credentials = await promptRequiredArgumentsService.run();
